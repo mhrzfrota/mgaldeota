@@ -3,6 +3,7 @@
   --white: #ffffff;
   --highlight: #febc11;
   --overlay: rgba(0, 0, 0, 0.7);
+  --header-height: 5.5rem;
 }
 
 *,
@@ -53,21 +54,36 @@ button {
   padding: 0 2rem;
 }
 
+.header-trigger {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 11;
+  width: 100%;
+  height: var(--header-height);
+  background: transparent;
+}
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 12;
   width: 100%;
-  height: 5.5rem;
+  height: var(--header-height);
   background: var(--white);
+  opacity: 0;
+  transform: translateY(-100%);
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
 }
 
 .header__content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 5.5rem;
+  height: var(--header-height);
 }
 
 .logo {
@@ -107,18 +123,48 @@ button {
   display: block;
 }
 
+.header-trigger:hover + .header,
+.header:hover,
+.header:focus-within {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+}
+
 main {
-  margin-top: 5.5rem;
+  margin-top: 0;
 }
 
 .hero {
-  padding: 2.5rem 0 3rem;
+  padding: 0;
 }
 
-.hero__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2rem;
+.hero--cover {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.hero--cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero__image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hero-card {
@@ -418,7 +464,7 @@ main {
 
 .journey__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 2rem;
   margin-bottom: 2.5rem;
 }
@@ -570,6 +616,7 @@ main {
   }
 
   .journey__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
   }
 
@@ -579,6 +626,10 @@ main {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --header-height: 4.5rem;
+  }
+
   .shell {
     padding: 0 1.5rem;
   }
@@ -587,12 +638,20 @@ main {
     padding: 0 1.5rem;
   }
 
+  .header-trigger {
+    display: none;
+  }
+
   .header {
-    height: 4.5rem;
+    height: var(--header-height);
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .header__content {
-    height: 4.5rem;
+    height: var(--header-height);
   }
 
   .logo {
@@ -605,11 +664,11 @@ main {
   }
 
   main {
-    margin-top: 4.5rem;
+    margin-top: 0;
   }
 
   .hero {
-    padding: 1.5rem 0 2rem;
+    padding: 0;
   }
 
   .hero__grid {
