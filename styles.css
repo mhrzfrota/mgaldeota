@@ -25,6 +25,10 @@ body {
   text-transform: none;
 }
 
+body.menu-open {
+  overflow: hidden;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -130,6 +134,86 @@ button {
 
 .icon-button svg {
   display: block;
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 17, 17, 0.55);
+  color: #111111;
+  z-index: 40;
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.menu-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu-overlay__inner {
+  width: min(26rem, 80vw);
+  max-width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 0 auto;
+  padding: 2.5rem 2.5rem 3rem;
+  background: #f7f7f2;
+  overflow-y: auto;
+  box-shadow: -18px 0 40px rgba(0, 0, 0, 0.15);
+  transform: translateX(100%);
+  transition: transform 0.35s ease;
+  max-width: none;
+}
+
+.menu-overlay.is-open .menu-overlay__inner {
+  transform: translateX(0);
+}
+
+.menu-overlay__close {
+  align-self: flex-end;
+  border: none;
+  background: transparent;
+  color: #111111;
+  font-size: 2.25rem;
+  line-height: 1;
+}
+
+.menu-overlay__nav {
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.menu-overlay__link {
+  position: relative;
+  width: fit-content;
+  font-size: clamp(1.2rem, 2.4vw, 1.8rem);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding-bottom: 0.35rem;
+}
+
+.menu-overlay__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #111111;
+  transition: width 0.3s ease;
+}
+
+.menu-overlay__link:hover::after,
+.menu-overlay__link:focus-visible::after {
+  width: 100%;
 }
 
 .header-trigger:hover + .header,
@@ -337,6 +421,9 @@ main {
   outline-offset: 3px;
 }
 
+#inicio,
+#time,
+#video,
 #metodologia,
 #horarios,
 #contato {
@@ -549,11 +636,12 @@ main {
 
 .video-section__video {
   position: relative;
-  width: 100%;
+  width: 80%;
   aspect-ratio: 16 / 9;
   background: #000000;
   overflow: hidden;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
 }
 
 .video-section__video iframe {
@@ -969,6 +1057,20 @@ main {
     height: 2.25rem;
   }
 
+  .menu-overlay__inner {
+    width: 100%;
+    padding: 2rem 1.5rem 2.5rem;
+  }
+
+  .menu-overlay__nav {
+    margin-top: 2rem;
+    gap: 1.5rem;
+  }
+
+  .menu-overlay__link {
+    letter-spacing: 0.25em;
+  }
+
   .hero__grid {
     grid-template-columns: 1fr;
     gap: 0.75rem;
@@ -1045,6 +1147,10 @@ main {
   .video-section__lead {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .video-section__video {
+    width: 100%;
   }
 
   .section-eyebrow {
