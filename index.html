@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MG Aldeota</title>
+  <link rel="icon" type="image/png" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -15,6 +16,7 @@
     <div class="shell">
       <div class="header__content">
         <a class="logo" href="#">
+          <img class="logo__icon" src="logo.png" alt="MG Aldeota">
           <span class="logo__mark">MG</span>
           Aldeota
         </a>
@@ -38,9 +40,63 @@
   </header>
 
   <main>
-    <section class="hero hero--cover" aria-label="Treino MG Aldeota">
-      <div class="hero__image">
-        <img src="foto2.jpg" alt="Treino na MG Aldeota">
+    <section class="hero hero--cover" aria-label="Destaques MG Aldeota">
+      <div class="hero-slider" data-hero-slider tabindex="0" aria-roledescription="carousel" aria-label="Destaques MG Aldeota">
+        <div class="hero-slides" id="hero-slides">
+          <article class="hero-slide is-active" data-index="0" aria-hidden="false">
+            <div class="hero-slide__image">
+              <img src="foto2.jpg" alt="Treino na MG Aldeota">
+            </div>
+            <div class="hero-slide__content shell__large">
+              <p class="hero-slide__eyebrow">BRAZILIAN JIU JITSU</p>
+              <h1 class="hero-slide__title">MG Aldeota</h1>
+              <p class="hero-slide__copy">Aulas para todos os níveis.</p>
+            </div>
+          </article>
+
+          <article class="hero-slide" data-index="1" aria-hidden="true">
+            <div class="hero-slide__image">
+              <img src="foto1.jpg" alt="Aula na MG Aldeota">
+            </div>
+            <div class="hero-slide__content shell__large">
+              <p class="hero-slide__eyebrow">Aula experimental</p>
+              <h2 class="hero-slide__title">Agende sua primeira aula</h2>
+              <p class="hero-slide__copy">Agende a aula experimental e veja os horarios das turmas.</p>
+              <div class="hero-slide__cta">
+                <a class="hero-slide__button" href="#horarios">Ver horarios</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="hero-slide" data-index="2" aria-hidden="true">
+            <div class="hero-slide__image">
+              <img src="foto3.jpg" alt="Alunos em treino na MG Aldeota">
+            </div>
+            <div class="hero-slide__content shell__large">
+              <p class="hero-slide__eyebrow">Arte sauve</p>
+              <h2 class="hero-slide__title">Honra, disciplina e legado.</h2>
+              <p class="hero-slide__copy">Treino para corpo e mente, com acompanhamento real.</p>
+              <div class="hero-slide__cta">
+                <a class="hero-slide__button hero-slide__button--outline" href="#contato">Falar com a equipe</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <button class="hero-nav hero-nav--prev" type="button" aria-label="Slide anterior" data-hero-prev>
+          <span class="hero-nav__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </button>
+        <button class="hero-nav hero-nav--next" type="button" aria-label="Proximo slide" data-hero-next>
+          <span class="hero-nav__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </button>
       </div>
     </section>
 
@@ -79,7 +135,28 @@
       </div>
     </section>
 
-    <section class="method">
+    <section class="video-section" aria-label="Video MG Aldeota">
+      <div class="shell__large">
+        <div class="video-section__header">
+          <div class="video-section__title-block">
+            <p class="section-eyebrow">Metodologia em video</p>
+            <h2 class="video-section__title">A metodologia campea na palma da sua mao</h2>
+          </div>
+          <p class="video-section__lead">Assista a um trecho e veja como conduzimos as aulas no tatame.</p>
+        </div>
+        <div class="video-section__video">
+          <iframe
+            src="https://www.youtube.com/embed/9tPPrgr1j60?rel=0"
+            title="Plataforma BJJ College Online com Melqui Galvao"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="method" id="metodologia">
       <div class="shell__large">
         <div class="method__grid">
           <div class="method__text">
@@ -96,7 +173,7 @@
       </div>
     </section>
 
-    <section class="journey">
+    <section class="journey" id="horarios">
       <div class="shell__large">
         <div class="journey__header">
           <h2>Hor&aacute;rios das turmas</h2>
@@ -106,7 +183,7 @@
         <div class="journey__grid">
           <div class="journey__stat">
             <span class="stat__number">Adulto</span>
-            <span class="stat__label">Seg-Sex 12h20 | Seg-Qua 19h</span>
+            <span class="stat__label">Seg-Sex 12h20 | Seg-Qua-Sex 19h</span>
           </div>
           <div class="journey__stat">
             <span class="stat__number">7-15 anos</span>
@@ -130,12 +207,13 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer" id="contato">
+    <img class="footer__gigueto" src="gigueto.png" alt="Gigueto">
     <div class="shell__large">
       <div class="footer__grid">
         <div class="footer__brand">
           <div class="footer__logo">MG Aldeota</div>
-          <p>Uma escola comprometida com excelencia, disciplina e evolucao dentro e fora do tatame.</p>
+          
         </div>
 
         <div class="footer__column">
@@ -179,5 +257,147 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (() => {
+      const slider = document.querySelector("[data-hero-slider]");
+      if (!slider) {
+        return;
+      }
+
+      const slidesWrap = slider.querySelector(".hero-slides");
+      const slides = Array.from(slidesWrap.querySelectorAll(".hero-slide"));
+      const prevButton = slider.querySelector("[data-hero-prev]");
+      const nextButton = slider.querySelector("[data-hero-next]");
+      const totalSlides = slides.length;
+      let activeIndex = 0;
+      let slideWidth = slider.clientWidth;
+      let autoTimer = null;
+      let startX = 0;
+      let startOffset = 0;
+      let isDragging = false;
+      let activePointerId = null;
+
+      const setTranslate = (value, animate = true) => {
+        slidesWrap.style.transition = animate ? "transform 0.7s ease" : "none";
+        slidesWrap.style.transform = `translateX(${value}px)`;
+      };
+
+      const updateSlides = () => {
+        slides.forEach((slide, index) => {
+          const isActive = index === activeIndex;
+          slide.classList.toggle("is-active", isActive);
+          slide.setAttribute("aria-hidden", isActive ? "false" : "true");
+        });
+      };
+
+      const goTo = (nextIndex, options = {}) => {
+        const animate = options.animate !== false;
+        activeIndex = (nextIndex + totalSlides) % totalSlides;
+        updateSlides();
+        setTranslate(-activeIndex * slideWidth, animate);
+      };
+
+      const startAuto = () => {
+        if (autoTimer) {
+          clearTimeout(autoTimer);
+        }
+        autoTimer = setTimeout(() => {
+          goTo(activeIndex + 1);
+          startAuto();
+        }, 5000);
+      };
+
+      const restartAuto = () => {
+        if (autoTimer) {
+          clearTimeout(autoTimer);
+        }
+        startAuto();
+      };
+
+      const stopAuto = () => {
+        if (autoTimer) {
+          clearTimeout(autoTimer);
+          autoTimer = null;
+        }
+      };
+
+      const handleResize = () => {
+        slideWidth = slider.clientWidth;
+        goTo(activeIndex, { animate: false });
+      };
+
+      const handlePointerDown = (event) => {
+        if (event.button !== 0 || event.target.closest("a, button")) {
+          return;
+        }
+        isDragging = true;
+        activePointerId = event.pointerId;
+        slider.setPointerCapture(activePointerId);
+        slider.classList.add("is-dragging");
+        startX = event.clientX;
+        startOffset = -activeIndex * slideWidth;
+        setTranslate(startOffset, false);
+        stopAuto();
+      };
+
+      const handlePointerMove = (event) => {
+        if (!isDragging || event.pointerId !== activePointerId) {
+          return;
+        }
+        const deltaX = event.clientX - startX;
+        setTranslate(startOffset + deltaX, false);
+      };
+
+      const handlePointerUp = (event) => {
+        if (!isDragging || event.pointerId !== activePointerId) {
+          return;
+        }
+        isDragging = false;
+        slider.classList.remove("is-dragging");
+        const deltaX = event.clientX - startX;
+        const threshold = Math.min(160, slideWidth * 0.2);
+        if (Math.abs(deltaX) > threshold) {
+          goTo(deltaX < 0 ? activeIndex + 1 : activeIndex - 1);
+        } else {
+          goTo(activeIndex);
+        }
+        slider.releasePointerCapture(activePointerId);
+        activePointerId = null;
+        restartAuto();
+      };
+
+      prevButton?.addEventListener("click", () => {
+        goTo(activeIndex - 1);
+        restartAuto();
+      });
+
+      nextButton?.addEventListener("click", () => {
+        goTo(activeIndex + 1);
+        restartAuto();
+      });
+
+      slider.addEventListener("pointerdown", handlePointerDown);
+      slider.addEventListener("pointermove", handlePointerMove);
+      slider.addEventListener("pointerup", handlePointerUp);
+      slider.addEventListener("pointercancel", handlePointerUp);
+      slider.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") {
+          goTo(activeIndex - 1);
+          restartAuto();
+        }
+        if (event.key === "ArrowRight") {
+          goTo(activeIndex + 1);
+          restartAuto();
+        }
+      });
+      slidesWrap.addEventListener("dragstart", (event) => event.preventDefault());
+      window.addEventListener("resize", handleResize);
+
+      handleResize();
+      goTo(0, { animate: false });
+      startAuto();
+    })();
+  </script>
 </body>
 </html>
