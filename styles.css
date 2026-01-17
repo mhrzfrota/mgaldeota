@@ -1005,14 +1005,14 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: 3.38rem;
+  height: 3.38rem;
   color: #ffffff;
 }
 
 .footer__social svg {
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1.86rem;
+  height: 1.86rem;
   fill: currentColor;
   display: block;
 }
