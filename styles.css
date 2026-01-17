@@ -119,6 +119,14 @@ button {
   display: flex;
   align-items: center;
   gap: 1.25rem;
+  flex-wrap: nowrap;
+}
+
+.header__icon-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: nowrap;
 }
 
 .icon-button {
